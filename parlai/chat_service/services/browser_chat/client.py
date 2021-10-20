@@ -9,7 +9,7 @@ import websocket
 import threading
 from parlai.core.params import ParlaiParser
 from parlai.scripts.interactive_web import WEB_HTML, STYLE_SHEET, FONT_AWESOME
-from http.server import BaseHTTPRequestHandler, HTTPServer
+from http.server import SimpleHTTPRequestHandler, BaseHTTPRequestHandler, HTTPServer
 
 
 SHARED = {}
@@ -23,11 +23,10 @@ new_message = None
 message_available = threading.Event()
 
 
-class BrowserHandler(BaseHTTPRequestHandler):
+class BrowserHandler(SimpleHTTPRequestHandler):
     """
     Handle HTTP requests.
     """
-
     def _interactive_running(self, reply_text):
         data = {}
         data['text'] = reply_text.decode('utf-8')
@@ -74,31 +73,6 @@ class BrowserHandler(BaseHTTPRequestHandler):
         else:
             return self._respond({'status': 500})
 
-    def do_GET(self):
-        """
-        Respond to GET request, especially the initial load.
-        """
-        paths = {
-            '/': {'status': 200},
-            '/favicon.ico': {'status': 202},  # Need for chrome
-        }
-        if self.path in paths:
-            self._respond(paths[self.path])
-        else:
-            self._respond({'status': 500})
-
-    def _handle_http(self, status_code, path, text=None):
-        self.send_response(status_code)
-        self.send_header('Content-type', 'text/html')
-        self.end_headers()
-        content = WEB_HTML.format(STYLE_SHEET, FONT_AWESOME)
-        return bytes(content, 'UTF-8')
-
-    def _respond(self, opts):
-        response = self._handle_http(opts['status'], self.path)
-        self.wfile.write(response)
-
-
 def on_message(ws, message):
     """
     Prints the incoming message from the server.
@@ -133,6 +107,7 @@ def on_close(ws):
 
 
 def _run_browser():
+    #TODO: npm build the frontend and copy build/ to current directory
     host = opt.get('host', 'localhost')
     serving_port = opt.get('serving_port', 8080)
 
