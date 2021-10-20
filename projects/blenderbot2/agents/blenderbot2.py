@@ -36,6 +36,7 @@ from parlai.tasks.wizard_of_internet.constants import (
     SELECTED_DOCS,
     SELECTED_DOCS_TITLES,
     SELECTED_SENTENCES,
+    NO_SELECTED_DOCS_TOKEN,
 )
 from parlai.utils.torch import padded_3d
 
@@ -607,7 +608,8 @@ class BlenderBot2RagAgent(RagAgent):
         :return observation:
             return observation with gold doc vec.
         """
-        if not observation[self.opt['gold_document_key']]:
+        gold_docs = observation[self.opt['gold_document_key']]
+        if not gold_docs or gold_docs == [NO_SELECTED_DOCS_TOKEN]:
             return observation
         doc_vecs = None
         doc_title_vecs = None
@@ -794,6 +796,8 @@ class BlenderBot2RagAgent(RagAgent):
             output.top_docs = self.model_api.retriever.top_docs
         if hasattr(self.model_api.retriever, 'search_queries'):
             output.search_queries = self.model_api.retriever.search_queries
+        if hasattr(self.model_api.memory_decoder, 'memories_full_list'):
+            output.memories = self.model_api.memory_decoder.memories_full_list
         return output
 
     def _model_input(
