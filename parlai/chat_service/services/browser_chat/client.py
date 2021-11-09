@@ -45,6 +45,18 @@ class BrowserHandler(SimpleHTTPRequestHandler):
         self.send_header('Content-type', 'text/html')
         self.end_headers()
 
+    def do_GET(self):
+        """Serve a GET request."""
+        print(self.path)
+        if self.path == '/personality-page' or self.path == '/chat-page':
+            self.path = '/'
+        f = self.send_head()
+        if f:
+            try:
+                self.copyfile(f, self.wfile)
+            finally:
+                f.close()
+
     def do_POST(self):
         """
         Handle POST request, especially replying to a chat message.
