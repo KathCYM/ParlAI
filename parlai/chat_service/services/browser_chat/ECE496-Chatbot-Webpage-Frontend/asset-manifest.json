@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/ECE496-Chatbot-Webpage-Frontend/static/css/main.19f7b525.chunk.css",
-    "main.js": "/ECE496-Chatbot-Webpage-Frontend/static/js/main.1b966c14.chunk.js",
-    "main.js.map": "/ECE496-Chatbot-Webpage-Frontend/static/js/main.1b966c14.chunk.js.map",
+    "main.js": "/ECE496-Chatbot-Webpage-Frontend/static/js/main.c6faa197.chunk.js",
+    "main.js.map": "/ECE496-Chatbot-Webpage-Frontend/static/js/main.c6faa197.chunk.js.map",
     "runtime-main.js": "/ECE496-Chatbot-Webpage-Frontend/static/js/runtime-main.04ad1b05.js",
     "runtime-main.js.map": "/ECE496-Chatbot-Webpage-Frontend/static/js/runtime-main.04ad1b05.js.map",
-    "static/js/2.eb5d85ec.chunk.js": "/ECE496-Chatbot-Webpage-Frontend/static/js/2.eb5d85ec.chunk.js",
-    "static/js/2.eb5d85ec.chunk.js.map": "/ECE496-Chatbot-Webpage-Frontend/static/js/2.eb5d85ec.chunk.js.map",
+    "static/js/2.354aa305.chunk.js": "/ECE496-Chatbot-Webpage-Frontend/static/js/2.354aa305.chunk.js",
+    "static/js/2.354aa305.chunk.js.map": "/ECE496-Chatbot-Webpage-Frontend/static/js/2.354aa305.chunk.js.map",
     "static/js/3.5854a797.chunk.js": "/ECE496-Chatbot-Webpage-Frontend/static/js/3.5854a797.chunk.js",
     "static/js/3.5854a797.chunk.js.map": "/ECE496-Chatbot-Webpage-Frontend/static/js/3.5854a797.chunk.js.map",
     "index.html": "/ECE496-Chatbot-Webpage-Frontend/index.html",
     "static/css/main.19f7b525.chunk.css.map": "/ECE496-Chatbot-Webpage-Frontend/static/css/main.19f7b525.chunk.css.map",
-    "static/js/2.eb5d85ec.chunk.js.LICENSE.txt": "/ECE496-Chatbot-Webpage-Frontend/static/js/2.eb5d85ec.chunk.js.LICENSE.txt",
+    "static/js/2.354aa305.chunk.js.LICENSE.txt": "/ECE496-Chatbot-Webpage-Frontend/static/js/2.354aa305.chunk.js.LICENSE.txt",
     "static/media/uoft_logo.f5dd18d6.png": "/ECE496-Chatbot-Webpage-Frontend/static/media/uoft_logo.f5dd18d6.png"
   },
   "entrypoints": [
     "static/js/runtime-main.04ad1b05.js",
-    "static/js/2.eb5d85ec.chunk.js",
+    "static/js/2.354aa305.chunk.js",
     "static/css/main.19f7b525.chunk.css",
-    "static/js/main.1b966c14.chunk.js"
+    "static/js/main.c6faa197.chunk.js"
   ]
 }

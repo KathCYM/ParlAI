@@ -12,5 +12,5 @@ class BrowserManager(WebsocketManager):
     Chat Service manager that runs chat service tasks using a local browser to send and
     receive messages.
     """
-
+    print ("i am in browser manager")
     pass

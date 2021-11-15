@@ -10,7 +10,7 @@ import threading
 from parlai.core.params import ParlaiParser
 from parlai.scripts.interactive_web import WEB_HTML, STYLE_SHEET, FONT_AWESOME
 from http.server import SimpleHTTPRequestHandler, BaseHTTPRequestHandler, HTTPServer
-
+from parlai.chat_service.services.browser_chat.paraphraser.infer import get_one_sentence
 
 SHARED = {}
 
@@ -70,7 +70,9 @@ class BrowserHandler(SimpleHTTPRequestHandler):
             self.end_headers()
             model_response = {'id': 'Model', 'episode_done': False}
             message_available.wait()
-            model_response['text'] = new_message
+            # model_response['text'] = new_message
+            model_response['text'] = new_message 
+            model_response['text_trans'] = get_one_sentence(new_message)
             message_available.clear()
             json_str = json.dumps(model_response)
             self.wfile.write(bytes(json_str, 'utf-8'))
